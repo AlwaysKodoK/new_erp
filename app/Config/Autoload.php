@@ -40,13 +40,19 @@ class Autoload extends AutoloadConfig
 
     public $psr4 = [
         APP_NAMESPACE   => APPPATH,
-        'Config'    => APPPATH . 'Config',
-        'Layout'    => ROOTPATH . 'modules/_layout',
-        'Login'     => ROOTPATH . 'modules/_login',
-        'hris'      => ROOTPATH . 'modules/hris',
-        'simrs'     => ROOTPATH . 'modules/simrs',
-        'pengadaan' => ROOTPATH . 'modules/pengadaan', 
-        'gizi'      => ROOTPATH . 'modules/gizi', 
+        'Config'        => APPPATH . 'Config',
+        'Layout'        => ROOTPATH . 'modules/_layout',
+        'Login'         => ROOTPATH . 'modules/_login',
+        'hris'          => ROOTPATH . 'modules/hris',
+        'simrs'         => ROOTPATH . 'modules/simrs',
+        'pengadaan'     => ROOTPATH . 'modules/pengadaan', 
+
+        'gizi'          => ROOTPATH . 'modules/gizi', 
+        'rm'            => ROOTPATH . 'modules/rm', 
+        'admisi'        => ROOTPATH . 'modules/admisi', 
+        'keuangan'      => ROOTPATH . 'modules/keuangan', 
+        'ci'            => ROOTPATH . 'modules/ci', 
+        'laporan'       => ROOTPATH . 'modules/laporan', 
     ];
 
     /**

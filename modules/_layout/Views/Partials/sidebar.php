@@ -1,7 +1,7 @@
 <style>
     .sidebar {
         width: 260px;
-        height: 95vh;
+        height: 98vh;
         background: transparent; 
         z-index: 1040;
         transition: width 0.3s ease;
@@ -205,9 +205,8 @@
                     <?php foreach ($menus as $parent): ?> 
                         <?php if (empty($parent['children'])): ?>
                             <li class="nav-item mt-1">
-                                <a href="<?= base_url($parent['MENU_URL'] ?? '#') ?>" class="nav-link d-flex align-items-center text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="<?= esc($parent['MENU_NAMA']) ?>">
-                                    <!-- PERBAIKAN FORMAT TAG IKON -->
-                                    <i class="<?= esc($parent['MENU_ICON'] ?? 'fa-solid fa-circle') ?> icon-w me-2 menu-icon"></i>
+                                <a href="<?= base_url($parent['MENU_URL'] ?? '#') ?>" class="nav-link d-flex align-items-center text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="<?= esc($parent['MENU_NAMA']) ?>"> 
+                                    <i class="fa-solid <?= esc($parent['MENU_ICON'] ?? 'fa-circle') ?> icon-w me-2 menu-icon"></i>
                                     <span class="menu-text"><?= esc($parent['MENU_NAMA']) ?></span>
                                 </a>
                             </li>
@@ -218,7 +217,7 @@
                             <li class="nav-item mt-1 has-submenu text-uppercase">
                                 <a href="#menu-<?= $slug ?>" data-bs-toggle="collapse" aria-expanded="false" class="nav-link d-flex align-items-center justify-content-between text-decoration-none">
                                     <div class="d-flex align-items-center">
-                                        <i class="<?= esc($parent['MENU_ICON'] ?? 'fa-solid fa-folder') ?> icon-w me-2 menu-icon"></i>
+                                        <i class="fa-solid <?= esc($parent['MENU_ICON'] ?? ' fa-folder') ?> icon-w me-2 menu-icon"></i>
                                         <span class="menu-text"><?= esc($parent['MENU_NAMA']) ?></span>
                                     </div>
                                     <i class="fa-solid fa-chevron-down chevron-icon"></i>

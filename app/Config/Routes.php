@@ -31,4 +31,22 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
             require ROOTPATH . 'modules/gizi/Config/Routes.php';
         }
     // ==== gizi ====
+
+    // ==== rm ====
+        if (is_file(ROOTPATH . 'modules/rm/Config/Routes.php')) {
+            require ROOTPATH . 'modules/rm/Config/Routes.php';
+        }
+    // ==== rm ====
+
+    // ==== admisi ====
+        if (is_file(ROOTPATH . 'modules/admisi/Config/Routes.php')) {
+            require ROOTPATH . 'modules/admisi/Config/Routes.php';
+        }
+    // ==== admisi ====
+
+    // ==== keuangan ====
+        if (is_file(ROOTPATH . 'modules/keuangan/Config/Routes.php')) {
+            require ROOTPATH . 'modules/keuangan/Config/Routes.php';
+        }
+    // ==== keuangan ====
 });

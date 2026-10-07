@@ -35,7 +35,7 @@ class Database extends Config {
     ]; 
     public array $medinPro  = [
         'DSN'        => 'TrustServerCertificate=yes;',
-        'hostname'   => '192.168.80.11',
+        'hostname'   => '192.168.89.11',
         'username'   => 'sa',
         'password'   => 'Kerupuk#0126@',
         'database'   => 'MS_RSRS',
@@ -55,9 +55,10 @@ class Database extends Config {
             'time'     => 'H:i:s',
         ],
     ];  
+
     public array $EMRPro    = [
         'DSN'        => '',
-        'hostname'   => '192.168.80.28',
+        'hostname'   => '192.168.89.20',
         'username'   => 'sa',
         'password'   => 'Kerupuk#0126@',
         'database'   => 'ROYAL_EMR',
@@ -77,6 +78,33 @@ class Database extends Config {
             'time'     => 'H:i:s',
         ],
     ];  
+
+    public array $custom   = [
+        'DSN'          => '',
+        'hostname'     => '192.168.89.30',
+        'username'     => 'root',
+        'password'     => 'PancingMenang#0826!',
+        'database'     => 'royal',
+        'DBDriver'     => 'MySQLi',
+        'DBPrefix'     => '',
+        'pConnect'     => false,
+        'DBDebug'      => true,
+        'charset'      => 'utf8mb4',
+        'DBCollat'     => 'utf8mb4_general_ci',
+        'swapPre'      => '',
+        'encrypt'      => false,
+        'compress'     => false,
+        'strictOn'     => false,
+        'failover'     => [],
+        'port'         => 3306,
+        'numberNative' => false,
+        'foundRows'    => false,
+        'dateFormat'   => [
+            'date'     => 'Y-m-d',
+            'datetime' => 'Y-m-d H:i:s',
+            'time'     => 'H:i:s',
+        ],
+    ]; 
     public array $tests     = [
         'DSN'         => '',
         'hostname'    => '127.0.0.1',

@@ -118,6 +118,52 @@
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 0.5rem;
     }
+
+
+    /* ====  Modal ==== */
+    .modalDark .modal-content {
+        background: #1a1d20;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #e4e6eb;
+    }
+    .modalDark .modal-header,
+    .modalDark .modal-footer {
+        border-color: rgba(255, 255, 255, 0.08);
+    }
+    .modalDark .modal-title {
+        color: #e4e6eb;
+        font-weight: 700;
+    }
+    .modalDark .form-label {
+        color: #9aa0a8;
+    }
+    .modalDark .form-control,
+    .modalDark textarea.form-control {
+        background-color: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: #e4e6eb;
+    }
+    .modalDark .form-control:focus {
+        background-color: rgba(255, 255, 255, 0.09);
+        border-color: #6c8cff;
+        color: #e4e6eb;
+        box-shadow: 0 0 0 0.2rem rgba(108, 140, 255, 0.15);
+    }
+    .modalDark .form-control::placeholder {
+        color: #6b7178;
+    }
+    .modalDark .btn-light {
+        background-color: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.12);
+        color: #e4e6eb;
+    }
+    .modalDark .btn-light:hover {
+        background-color: rgba(255, 255, 255, 0.14);
+        color: #ffffff;
+    } 
+    .modal-backdrop.show {
+        opacity: 0.6;
+    }
 </style>
 
 <div class="cardTable card border-0 shadow-sm mb-4 rounded-3">
@@ -129,11 +175,13 @@
 
     <div class="card-body p-4">
         <div class="table-responsive">
-            <table id="<?= esc($tableId) ?>" class="table table-hover align-middle w-100 mb-0">
+            <table id="<?= esc($tableId) ?>" class="table table-hover align-top w-100 mb-0">
                 <thead>
                     <tr>
                         <?php foreach ($columns as $col): ?>
-                            <th><?= esc($col['label']) ?></th>
+                            <th <?= isset($col['width']) ? 'style="width:' . esc($col['width']) . '"' : '' ?>>
+                                <?= esc($col['label']) ?>
+                            </th>
                         <?php endforeach; ?>
                     </tr>
                 </thead>

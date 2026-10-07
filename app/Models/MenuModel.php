@@ -31,29 +31,31 @@ class MenuModel extends Model {
             FROM _master_akses a
             INNER JOIN _master_menu b ON b.ID_MENU = a.ID_MENU
             WHERE a.ID_GROUP = ? 
-              AND b.MENU_STATUS = 1
-              AND (b.MENU_URL LIKE ? OR b.MENU_URL = '#') 
+            AND b.MENU_STATUS = 1
+            AND (b.MENU_URL LIKE ? OR b.MENU_URL = '#') 
             ORDER BY b.MENU_NAMA ASC
         ";
         $searchPattern = $activeModule . '%';
         $menus = $this->ERP->query($sqlMenu, [$level2, $searchPattern])->getResultArray();
-        $menuTree = [];
+
         $indexedMenus = [];
- 
         foreach ($menus as $menu) {
             $menu['children'] = [];
             $indexedMenus[$menu['ID_MENU']] = $menu;
         }
- 
+
+        $menuTree = [];
         foreach ($indexedMenus as $id => $menu) {
             if ($menu['MENU_PARENT'] == 0) { 
-                $menuTree[$id] = $menu;
+                $menuTree[$id] = &$indexedMenus[$id];
             } else { 
                 if (isset($indexedMenus[$menu['MENU_PARENT']])) {
-                    $menuTree[$menu['MENU_PARENT']]['children'][] = $menu;
+                    $indexedMenus[$menu['MENU_PARENT']]['children'][] = &$indexedMenus[$id];
                 }
             }
         }
+        unset($menu); 
+
         return $menuTree; 
     }
 }

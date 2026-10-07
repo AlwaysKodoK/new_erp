@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? 'ERP SIMRS' ?></title>
+    <meta name="csrf-token" content="<?= csrf_hash() ?>">
+    <title><?= $this->renderSection('title') ?: 'ERP SIMRS' ?></title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,12 +20,14 @@
         :root {
             --bs-font-sans-serif: 'Poppins', sans-serif;
             --bs-body-font-family: 'Poppins', sans-serif;
+            --font-white: white;
+            --bg-dark: rgba(255, 255, 255, 0.04);
         } 
         body {
             font-family: var(--bs-body-font-family); 
             height: 100vh;
             overflow: hidden;
-            background: #121212;
+            background: #121212 !important;
         }
         
         .wrapper {
@@ -36,6 +39,76 @@
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #adb5bd; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #6c757d; }
+
+
+        .swal2-popup {
+            background: #151619 !important;
+            color: var(--font-white) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            border-radius: 16px !important;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9) !important;
+        }
+
+        .swal2-title, .swal2-html-container {
+            color: var(--font-white) !important;
+        }
+
+        .swal2-confirm {
+            background: linear-gradient(135deg, #C59B27 0%, #D4AF37 50%, #9A7B1B 100%) !important;
+            color: var(--font-white) !important;
+            font-weight: 600 !important;
+            border-radius: 8px !important;
+            padding: 10px 24px !important;
+        }
+
+        .cardDark,
+        .modalDark .modal-content {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08) !important; 
+            color: var(--font-white) !important;
+        }
+
+        .cardDark .form-control,
+        .cardDark .form-select,
+        .modalDark .form-control,
+        .modalDark .form-select {
+            background-color: var(--bg-dark) !important; 
+            color: #e9ecef;
+            border: 1px solid #444a54;
+        }
+
+        .cardDark .form-control:focus,
+        .cardDark .form-select:focus,
+        .modalDark .form-control:focus,
+        .modalDark .form-select:focus {
+            background-color: var(--bg-dark) !important;
+            color: #e9ecef;
+            border-color: #6c757d;
+            box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
+        }
+
+        .cardDark .form-select option,
+        .modalDark .form-select option {
+            background-color: #1a1d21 !important; 
+            color: #e9ecef !important;
+        }
+
+        .cardDark .form-control::placeholder,
+        .modalDark .form-control::placeholder {
+            color: #8a8f98;
+        }
+
+        .cardDark .form-label,
+        .modalDark .form-label {
+            color: #cfd3d8;
+        }
+
+        .cardDark input[type="date"]::-webkit-calendar-picker-indicator,
+        .modalDark input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
     </style>
 </head>
 <body class="d-flex wrapper">
